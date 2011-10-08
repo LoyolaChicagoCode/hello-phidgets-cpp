@@ -1,13 +1,11 @@
-CXXFLAGS =	-O2 -g -Wall -fmessage-length=0
+CXXFLAGS +=	-O2 -g -Wall -fmessage-length=0
+LDLIBS +=	-lphidget21
 
 OBJS =		main.o
-
-LIBS =		-lphidget21
-
 TARGET =	hello-phidgets
 
 $(TARGET):	$(OBJS)
-	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)
+	$(CXX) -o $(TARGET) $(OBJS) $(LDFLAGS) $(LDLIBS)
 
 all:	$(TARGET)
 
